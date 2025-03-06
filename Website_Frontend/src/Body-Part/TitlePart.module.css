@@ -1,0 +1,153 @@
+/* .titlePart {
+    text-align: center;
+    white-space: pre-wrap;
+    transition-timing-function: ease;
+    transition-duration: 1.5s;
+    transition-delay: 0.142373s;
+} */
+
+.sqsrte {
+    color: rgb(58, 56, 58);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: lighter;
+}
+
+.para {
+    font-size: 17.5px;
+    font-weight: 450;
+}
+
+.iamgeSection {
+    margin-top: 40px;
+}
+
+.box1 {
+    display: block;
+    height: 480px;
+    width: 100%;
+    background-color: aqua;
+}
+
+.boxImage11 {
+    height: 896px;
+    width: 780px;
+}
+
+.boxImage12 {
+    height: 600px;
+    width: 1000px;
+}
+
+@media screen and (max-width: 1317px) {
+    .boxImage12 {
+        height: 896px;
+        width: 780px;
+    }
+}
+
+@media screen and (min-width: 1000px) {
+    .MpImage {
+        height: 164px;
+        width: 200px;
+        position: relative;
+        left: 450px;
+        top: 200px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .MpImage {
+        height: 164px;
+        width: 200px;
+        position: relative;
+        top: 0px;
+        left: 300px;
+    }
+}
+
+@media screen and (min-width: 1354px) {
+    .MpTitle {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 400;
+        font-size: 25px;
+        position: relative;
+        top: 290px;
+        left: 250px;
+    }
+
+    .Mppara {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-top: 380px;
+        margin-left: 180px;
+    }
+}
+
+@media screen and (max-width: 1354px) {
+    .MpTitle {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 400;
+        font-size: 25px;
+        position: relative;
+        left: 100px;
+        margin-top: 100px;
+    }
+
+    .Mppara {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-top: 100px;
+        margin-left: 180px;
+    }
+}
+
+.row {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1* var(--bs-gutter-y));
+}
+
+.MeetMarc {
+    background-color: black;
+    color: white;
+    height: 60px;
+    width: 250px;
+    margin-left: 400px;
+    margin-top: 100px;
+}
+
+@media screen and (max-width: 700px) {
+    .MeetMarc {
+        background-color: black;
+        color: white;
+        height: 60px;
+        width: 150px;
+        margin-left: 330px;
+        margin-top: 70px;
+    }
+}
+
+.designTitle {
+    font-size: 25px;
+    font-weight: 400;
+    font-style: oblique;
+    margin-top: 110px;
+    margin-left: 180px;
+}
+
+.elegant {
+    margin-top: 50px;
+    font-size: 30px;
+    font-weight: 300;
+    font-style: inherit;
+}
+
+.CallButton {
+    background-color: black;
+    color: white;
+    height: 70px;
+    width: 200px;
+    margin-top: 80px;
+    margin-left: 200px;
+}
