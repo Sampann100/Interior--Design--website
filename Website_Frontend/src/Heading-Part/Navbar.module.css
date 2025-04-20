@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .headingImage {
     max-height: 66px;
     position: relative;
@@ -32,4 +33,40 @@
 .SignUp{
     color: rgb(13, 13, 13);
     text-decoration: none;
+=======
+.headingImage {
+    max-height: 66px;
+    position: relative;
+    left: 80px;
+}
+
+.navStyle {
+    text-decoration: none;
+    color: black;
+    display: block;
+    padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+    font-size: var(--bs-nav-link-font-size);
+    font-weight: var(--bs-nav-link-font-weight);
+    text-decoration: none;
+    background: 0 0;
+    border: 0;
+    transition: var(--bs-nav-link-color) .15sease-in-out, background-color .15sease-in-out, border-color .15sease-in-out;
+}
+:hover.navStyle{
+    color: var(--bs-nav-link-color);
+}
+
+.detailEnter {
+    position: absolute;
+    left: 1650px;
+}
+
+.LoginBtn{
+    color: white;
+    text-decoration: none;
+}
+.SignUp{
+    color: rgb(13, 13, 13);
+    text-decoration: none;
+>>>>>>> 187e5ac (termperory work)
 }
