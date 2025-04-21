@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-const mongoose = require("mongoose");
-
-const itemSchema = new mongoose.Schema({
-  items: [
-    {
-      id: String,
-      imageUrl: String,
-      description: String,
-      original_price: Number,
-      current_price: Number,
-    },
-  ],
-});
-
-const ItemCollection = mongoose.model("ItemCollection", itemSchema, "Interior_Item");
-
-module.exports = ItemCollection;
-=======
 const mongoose = require("mongoose");
 
 const itemSchema = new mongoose.Schema({
@@ -34,4 +15,3 @@ const ItemCollection = mongoose.model(
 );
 
 module.exports = ItemCollection;
->>>>>>> 187e5ac (termperory work)

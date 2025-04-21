@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const mongoose = require("mongoose");
 
 const personalContactSchema = new mongoose.Schema({
@@ -20,26 +19,3 @@ const PersonalContactDetailModel = mongoose.model(
 );
 
 module.exports = PersonalContactDetailModel;
-=======
-const mongoose = require("mongoose");
-
-const personalContactSchema = new mongoose.Schema({
-  FirstName: { type: String, required: true },
-  LastName: { type: String, required: true },
-  Email: { type: String, required: true },
-  Address1: { type: String, required: true },
-  Address2: { type: String, required: true },
-  Country: { type: String, required: true },
-  State: { type: String, required: true },
-  Zip: { type: String, required: true },
-  Message: { type: String, required: true },
-});
-
-const PersonalContactDetailModel = mongoose.model(
-  "personalContactDetailModel",
-  personalContactSchema,
-  "personalContactDetail"
-);
-
-module.exports = PersonalContactDetailModel;
->>>>>>> 187e5ac (termperory work)
