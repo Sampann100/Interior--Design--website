@@ -36,5 +36,4 @@ exports.chatbot = async (req, res) => {
     );
     res.status(500).json({ error: "Failed to fetch chatbot response" });
   }
->>>>>>> 187e5ac (termperory work)
 };

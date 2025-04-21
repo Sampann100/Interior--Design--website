@@ -77,4 +77,3 @@ const Chatbot = () => {
 };
 
 export default Chatbot;
->>>>>>> 187e5ac (termperory work)
