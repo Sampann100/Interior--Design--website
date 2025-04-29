@@ -2,17 +2,19 @@ import React from "react";
 import "../src/App.css";
 import Navbar from "../src/Heading-Part/Navbar";
 import Footer from "../src/Heading-Part/Footer";
-import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import FetchItem from "../src/NavbarBtn/FetchItem";
+import { useSelector } from "react-redux";
+import Loader from "../src/Body-Part/Loader";
 
 function App() {
+  const fetchStatus = useSelector((store) => store.fetchStatus);
 
   return (
     <>
-      <Navbar />
+      <Navbar/>
       <FetchItem />
-      <Outlet />
+      {fetchStatus.currentlyFetching ? <Loader /> : <Outlet />}
       <Footer />
     </>
   );

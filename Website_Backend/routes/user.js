@@ -1,12 +1,16 @@
 const express = require("express");
-const { signUpPage } = require("../controller/SignUp");
-const { loginPage } = require("../controller/Login");
+const { signUpPage } = require("../controller/authController/SignUp");
+const { loginPage } = require("../controller/authController/Login");
+const { postItemComment } = require("../controller/itemComment");
+const { getaddItems } = require("../controller/addItem");
+const { getBagItem } = require("../controller/bagItem");
 
 const userRouter = express.Router();
 
-userRouter.post("/signup", signUpPage);
+userRouter.get("/items", getaddItems);
+userRouter.get("/cart", getBagItem);
 
-userRouter.post("/login", loginPage);
-
+//Comment
+userRouter.post("/comment", postItemComment);
 
 module.exports = userRouter;

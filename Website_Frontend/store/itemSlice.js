@@ -7,6 +7,12 @@ const itemSlice = createSlice({
     addInitialState: (state, action) => {
       return action.payload;
     },
+    removeFromCart: (state, action) => {
+      const idToRemove = action.payload;
+      console.log("Removing item with ID:", idToRemove);
+      const itemArray = JSON.parse(JSON.stringify(state));
+      return state.filter((item) => item.itemId._id !== idToRemove);
+    },
   },
 });
 

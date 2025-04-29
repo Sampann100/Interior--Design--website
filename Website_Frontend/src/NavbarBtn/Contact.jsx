@@ -171,7 +171,7 @@ const Contact = () => {
       >
         <div className="row g-4">
           <div className="col-sm-6">
-            <label htmlFor="firstName" className="form-label">
+            <label htmlhtmlFor="firstName" className="form-label">
               First name <span style={{ color: "#89A8B2" }}>(required)</span>
             </label>
             <input
@@ -191,7 +191,7 @@ const Contact = () => {
           </div>
 
           <div className="col-sm-6">
-            <label htmlFor="lastName" className="form-label">
+            <label htmlhtmlFor="lastName" className="form-label">
               Last name <span style={{ color: "#89A8B2" }}>(required)</span>
             </label>
             <input
@@ -209,7 +209,7 @@ const Contact = () => {
           </div>
 
           <div className="col-12">
-            <label htmlFor="email" className="form-label">
+            <label htmlhtmlFor="email" className="form-label">
               Email <span style={{ color: "#89A8B2" }}>(required)</span>
             </label>
             <input
@@ -230,7 +230,7 @@ const Contact = () => {
           </div>
 
           <div className="col-6">
-            <label htmlFor="address" className="form-label">
+            <label htmlhtmlFor="address" className="form-label">
               Address 1 <span style={{ color: "#89A8B2" }}>(required)</span>
             </label>
             <input
@@ -251,7 +251,7 @@ const Contact = () => {
           </div>
 
           <div className="col-6">
-            <label htmlFor="address2" className="form-label">
+            <label htmlhtmlFor="address2" className="form-label">
               Address 2 <span className="text-body-secondary">(required)</span>
             </label>
             <input
@@ -269,7 +269,7 @@ const Contact = () => {
           </div>
 
           <div className="col-md-5">
-            <label htmlFor="country" className="form-label">
+            <label htmlhtmlFor="country" className="form-label">
               Country
             </label>
             <select
@@ -294,7 +294,7 @@ const Contact = () => {
           </div>
 
           <div className="col-md-4">
-            <label htmlFor="state" className="form-label">
+            <label htmlhtmlFor="state" className="form-label">
               State
             </label>
             <select
@@ -319,7 +319,7 @@ const Contact = () => {
           </div>
 
           <div className="col-md-3">
-            <label htmlFor="zip" className="form-label">
+            <label htmlhtmlFor="zip" className="form-label">
               Zip
             </label>
             <input
@@ -338,7 +338,7 @@ const Contact = () => {
           </div>
 
           <div className="mb-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">
+            <label htmlhtmlFor="exampleInputEmail1" className="form-label">
               Message <span style={{ color: "#89A8B2" }}>(required)</span>
             </label>
             <textarea

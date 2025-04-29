@@ -9,6 +9,7 @@ const FetchItem = () => {
 
   useEffect(() => {
     const controller = new AbortController();
+    dispatch(fetctStatusAction.markFetchStarted());
 
     fetch("http://localhost:5000/items")
       .then((res) => res.json())

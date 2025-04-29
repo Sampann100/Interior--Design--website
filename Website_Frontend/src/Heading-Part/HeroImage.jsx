@@ -46,5 +46,6 @@ export default HeroImage;
 const style = {
   HeroHeight: {
     height: "580px",
+    borderRadius: "40px"
   },
 };

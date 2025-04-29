@@ -4,6 +4,10 @@ const bagItem = require("../models/bagItem");
 
 exports.postBagItem = async (req, res, next) => {
   const { itemId } = req.body;
+  const itemExist = ItemCollection.findById(itemId);
+  if (!itemExist) {
+    return res.status(404).json({ message: "Item does not exist." });
+  }
   const productId = await new bagItem({ itemId: itemId });
   if (!productId) {
     return res.status(404).json({ messgae: "Item not found" });
@@ -28,9 +32,9 @@ exports.deleteBagItem = async (req, res, next) => {
   const { itemId } = req.body;
 
   await bagItem
-    .findOneAndDelete({itemId: itemId})
+    .findOneAndDelete({ itemId: itemId })
     .then((itemdelete) => {
-      if(!itemdelete){
+      if (!itemdelete) {
         return res.status(404).json({ message: "Item not found" });
       }
       res.json({ message: "Item deleted successfully" });

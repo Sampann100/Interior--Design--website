@@ -6,9 +6,7 @@ import "./index.css";
 import { Provider } from "react-redux";
 import App from "../routes/App.jsx";
 import Home from "../routes/Home.jsx";
-import Login from "./PersonalDetail/LoginPage.jsx";
 import About from "./NavbarBtn/About.jsx";
-import SignupForm from "./PersonalDetail/SignUp.jsx";
 import Contact from "./NavbarBtn/Contact.jsx";
 import Service from "./NavbarBtn/Service.jsx";
 import Chatbot from "./NavbarBtn/ChatBot.jsx";
@@ -16,12 +14,17 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import AddProduct from "./NavbarBtn/AddProduct.jsx";
 import designerStore from "../store/index.js";
 import Bag from "../routes/Bag.jsx";
+import ProductDetail from "./NavbarBtn/ProductDetail.jsx";
+
+//authentication
+import LoginPage from "./authentication/LoginPage.jsx";
+import SignUpForm from "./authentication/SignUp.jsx";
 
 const router = createBrowserRouter(
   [
     {
       path: "/",
-      element: <App />,
+      element: <App/>,
       children: [
         { index: true, element: <Home /> },
         { path: "/Home", element: <Home /> },
@@ -30,15 +33,16 @@ const router = createBrowserRouter(
         { path: "/Service", element: <Service /> },
         { path: "/addProduct", element: <AddProduct /> },
         { path: "/cart", element: <Bag /> },
+        { path: "/product/:itemId", element: <ProductDetail /> },
       ],
     },
     {
       path: "/Login",
-      element: <Login />,
+      element: <LoginPage/>,
     },
     {
       path: "/SignUp",
-      element: <SignupForm />,
+      element: <SignUpForm/>,
     },
     {
       path: "/chatbot",

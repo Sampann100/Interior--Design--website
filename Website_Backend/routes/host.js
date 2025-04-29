@@ -6,13 +6,13 @@ const { chatbot } = require("../controller/chatbot");
 const { ImageGeneration } = require("../controller/ImageGeneration");
 const {
   postaddItems,
-  getaddItems,
   postDeleteItem,
+  getaddItems,
 } = require("../controller/addItem");
 const {
-  getBagItem,
   postBagItem,
   deleteBagItem,
+  // getBagItem,
 } = require("../controller/bagItem");
 
 const hostRouter = express.Router();
@@ -25,7 +25,8 @@ hostRouter.post("/items", postaddItems);
 hostRouter.get("/items", getaddItems);
 
 hostRouter.post("/cart", postBagItem);
-hostRouter.get("/cart", getBagItem);
+// hostRouter.get("/cart", getBagItem);
+
 hostRouter.post("/deleteCartItem", deleteBagItem);
 
 hostRouter.post("/itemDelete", postDeleteItem);

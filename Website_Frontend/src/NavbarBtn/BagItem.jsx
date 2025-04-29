@@ -6,22 +6,7 @@ import { fetctStatusAction } from "../../store/fetchStatus";
 
 const BagItem = ({ newitem }) => {
   const item = newitem.itemId;
-  const fetchStatus = useSelector((state) => state.fetchStatus);
   const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   if (!fetchStatus.fetchDone) {
-  //     fetch("http://localhost:5000/cart")
-  //       .then((res) => res.json())
-  //       .then((data) => {
-  //         console.log("Data: ", data);
-  //         dispatch(bagActions.addToBag(data));
-  //         dispatch(fetctStatusAction.markFetchDone());
-  //         dispatch(fetctStatusAction.markFetchFinish());
-  //       })
-  //       .catch((err) => console.log("Error: ", err));
-  //   }
-  // }, [dispatch, fetchStatus.fetchDone]);
 
   const handleRemoveItemFromCart = async (e, itemId) => {
     e.preventDefault();

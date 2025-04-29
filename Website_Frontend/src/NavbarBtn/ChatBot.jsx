@@ -48,7 +48,7 @@ const Chatbot = () => {
         <div className="card-body overflow-auto" style={{ height: "400px" }}>
           {messages.map((msg, index) => (
             <div key={index} className={`d-flex ${msg.sender === "user" ? "justify-content-end" : "justify-content-start"}`}>
-              <div className={`p-2 rounded shadow-sm ${msg.sender === "user" ? "bg-primary text-white" : "bg-secondary text-light"}`} style={{ maxWidth: "75%" }}>
+              <div className={`p-2 rounded shadow-sm my-2 ${msg.sender === "user" ? "bg-primary text-white" : "bg-secondary text-light"}`} style={{ maxWidth: "75%" }}>
                 <p className="m-0">{msg.text}</p>
               </div>
             </div>

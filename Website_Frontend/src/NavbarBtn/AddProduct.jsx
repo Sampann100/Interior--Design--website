@@ -3,7 +3,6 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { itemActions } from "../../store/itemSlice";
-import { fetctStatusAction } from "../../store/fetchStatus";
 
 const AddProduct = () => {
   const dispatch = useDispatch();
@@ -34,84 +33,115 @@ const AddProduct = () => {
   };
 
   return (
-    <div className="container mt-5">
-      <div className="card shadow-lg p-4">
-        <h2 className="text-center mb-4">Add Interior Product</h2>
-        <form onSubmit={handleSubmit(onSubmit)} method="POST">
-          <div className="mb-3">
-            <label className="form-label">Product Name</label>
-            <input
-              type="text"
-              {...register("itemName", { required: true })}
-              className="form-control"
-              placeholder="Enter product name"
-            />
-            {errors.name && (
-              <div style={{ fontSize: "15px" }}>Filed is required.</div>
-            )}
-          </div>
+    <div className="container my-5">
+      <div className="row justify-content-center">
+        <div className="col-lg-7 col-md-9">
+          <div className="card shadow-lg border-0 rounded-4 p-4">
+            <h2 className="text-center mb-4 fw-bold">Add Interior Product</h2>
+            <form
+              onSubmit={handleSubmit(onSubmit)}
+              method="POST"
+              autoComplete="off"
+            >
+              <div className="mb-3">
+                <label className="form-label fw-semibold">Product Name</label>
+                <input
+                  type="text"
+                  {...register("itemName", { required: true })}
+                  className={`form-control ${
+                    errors.itemName ? "is-invalid" : ""
+                  }`}
+                  placeholder="Enter product name"
+                />
+                {errors.itemName && (
+                  <div className="invalid-feedback">
+                    Product name is required.
+                  </div>
+                )}
+              </div>
 
-          <div className="mb-3">
-            <label className="form-label">Description</label>
-            <textarea
-              {...register("description", { required: true })}
-              className="form-control"
-              placeholder="Enter product description"
-              rows="3"
-            ></textarea>
-            {errors.name && (
-              <div style={{ fontSize: "15px" }}>Filed is required.</div>
-            )}
-          </div>
+              <div className="mb-3">
+                <label className="form-label fw-semibold">Description</label>
+                <textarea
+                  {...register("description", { required: true })}
+                  className={`form-control ${
+                    errors.description ? "is-invalid" : ""
+                  }`}
+                  placeholder="Enter product description"
+                  rows="3"
+                ></textarea>
+                {errors.description && (
+                  <div className="invalid-feedback">
+                    Description is required.
+                  </div>
+                )}
+              </div>
 
-          <div className="mb-3">
-            <label className="form-label">Current Price ($)</label>
-            <input
-              type="number"
-              {...register("current_price", { required: true })}
-              className="form-control"
-              placeholder="Enter price"
-            />
-            {errors.name && (
-              <div style={{ fontSize: "15px" }}>Filed is required.</div>
-            )}
-          </div>
+              <div className="row">
+                <div className="col-md-6 mb-3">
+                  <label className="form-label fw-semibold">
+                    Current Price ($)
+                  </label>
+                  <input
+                    type="number"
+                    {...register("current_price", { required: true, min: 1 })}
+                    className={`form-control ${
+                      errors.current_price ? "is-invalid" : ""
+                    }`}
+                    placeholder="Enter price"
+                  />
+                  {errors.current_price && (
+                    <div className="invalid-feedback">
+                      Current price is required.
+                    </div>
+                  )}
+                </div>
+                <div className="col-md-6 mb-3">
+                  <label className="form-label fw-semibold">
+                    Original Price ($)
+                  </label>
+                  <input
+                    type="number"
+                    {...register("original_price", { required: true, min: 1 })}
+                    className={`form-control ${
+                      errors.original_price ? "is-invalid" : ""
+                    }`}
+                    placeholder="Enter price"
+                  />
+                  {errors.original_price && (
+                    <div className="invalid-feedback">
+                      Original price is required.
+                    </div>
+                  )}
+                </div>
+              </div>
 
-          <div className="mb-3">
-            <label className="form-label">Original Price ($)</label>
-            <input
-              type="number"
-              {...register("original_price", { required: true })}
-              className="form-control"
-              placeholder="Enter price"
-            />
-            {errors.name && (
-              <div style={{ fontSize: "15px" }}>Filed is required.</div>
-            )}
-          </div>
+              <div className="mb-4">
+                <label className="form-label fw-semibold">
+                  Product Image URL
+                </label>
+                <input
+                  type="url"
+                  {...register("imageUrl", { required: true })}
+                  className={`form-control ${
+                    errors.imageUrl ? "is-invalid" : ""
+                  }`}
+                  placeholder="https://example.com/image.jpg"
+                />
+                {errors.imageUrl && (
+                  <div className="invalid-feedback">Image URL is required.</div>
+                )}
+              </div>
 
-          <div className="mb-3">
-            <label className="form-label">Upload Image: </label>
-            {/*<input
-              type="file"
-              accept=".jpg, .png"
-              {...register("imageFile")}
-              className="form-control"
-            />
-            <div style={{ fontSize: "17px" }}>or</div>*/}
-            <input
-              type="url"
-              {...register("imageUrl", { required: true })}
-              className="form-control"
-              placeholder="https://example.com/image.jpg"
-            />
+              <button
+                className="btn btn-primary w-100 py-2 fw-semibold rounded-pill shadow-sm"
+                type="submit"
+              >
+                Add Product
+              </button>
+            </form>
           </div>
-          <input
-            className="btn btn-primary w-100"
-            type="submit"
-            value="Add Product"
-          />
-        </form>
+        </div>
       </div>
     </div>
   );

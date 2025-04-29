@@ -3,7 +3,7 @@ const ItemCollection = require("../models/items");
 exports.getaddItems = async (req, res, next) => {
   try {
     const data = await ItemCollection.find({}, { items: 0 });
-    res.json(data);
+    res.status(200).json(data);
   } catch (error) {
     console.error("Error fetching items:", error);
     res.status(500).json({ error: "Internal Server Error" });
@@ -23,16 +23,17 @@ exports.postaddItems = async (req, res) => {
   });
   await newItem
     .save()
-    .then(() => console.log("Item saved successfully!!"))
+    .then(() =>
+      res
+        .status(200)
+        .json({ message: "Item added successfully" })
+    )
     .catch((err) => console.log("Error occur in adding item: ", err));
-
-  res.status(200).json({ message: "Item added successfully" });
 };
 
 exports.postDeleteItem = (req, res, next) => {
   const { itemId } = req.body;
   ItemCollection.findByIdAndDelete(itemId)
-    .then(() => console.log("Item was deleted!!"))
+    .then(() => res.status(200).json({ message: "Item deleted successfully" }))
     .catch((err) => console.log("Error occur in deleting item: ", err));
-  res.status(200).json({ message: "Item deleted successfully" });
 };

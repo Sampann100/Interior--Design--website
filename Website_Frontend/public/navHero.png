@@ -4420,7 +4420,7 @@ updated, custom designs." />
         
           
             <div id="email-yui_3_17_2_1_1721953914717_6046" className="newsletter-form-field-wrapper form-item field email required" style="vertical-align: bottom;">
-              <label className="newsletter-form-field-label title" for="email-yui_3_17_2_1_1721953914717_6046-field">Email Address</label>
+              <label className="newsletter-form-field-label title" htmlFor="email-yui_3_17_2_1_1721953914717_6046-field">Email Address</label>
               <input id="email-yui_3_17_2_1_1721953914717_6046-field" className="newsletter-form-field-element field-element" name="email" x-autocompletetype="email" autocomplete="email" type="email" spellcheck="false" placeholder="Email Address" />
             </div>
           
