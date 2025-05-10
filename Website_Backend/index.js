@@ -5,6 +5,9 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const ItemCollection = require("./models/items");
 
+const session = require("express-session");
+const MongoDBstore = require("connect-mongodb-session")(session);
+
 const hostRouter = require("./routes/host");
 const userRouter = require("./routes/user");
 const authRouter = require("./routes/auth");
@@ -20,10 +23,11 @@ app.use(
 
 //Body parser middleware
 app.use(bodyParser.json({ extended: true }));
+app.use(bodyParser.urlencoded());
 
+app.use(authRouter);
 app.use(userRouter);
 app.use(hostRouter);
-app.use(authRouter);
 
 // MongoDB Connection + Server Start
 const PORT = 5000;

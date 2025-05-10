@@ -11,6 +11,13 @@ exports.loginPage = async (req, res) => {
         .json({ message: "All fields are required!" });
     }
 
+    const existingUser = await loginModel.findOne({ Email });
+    if (existingUser) {
+      return res
+        .status(200)
+        .json({ message: "User already exists!" });
+    }
+
     const signupData = await SignupModel.findOne({ Email });
 
     if (!signupData) {
@@ -25,7 +32,7 @@ exports.loginPage = async (req, res) => {
       const userData = new loginModel({ Email, Password });
       await userData.save();
       return res.status(201).json({
-        message: "Login successful!",
+        message: "Login successful!"
       });
     } else {
       return res

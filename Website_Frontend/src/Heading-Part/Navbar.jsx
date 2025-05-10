@@ -20,7 +20,10 @@ export default function Navbar() {
           </div>
 
           {/* Navigation Links */}
-          <div className="navbar navbar-expand-lg bg-body-tertiary" style={{ marginLeft: "0px" }}>
+          <div
+            className="navbar navbar-expand-lg bg-body-tertiary"
+            style={{ marginLeft: "0px" }}
+          >
             <div className="container-fluid">
               <ul
                 className="nav col-12 mb-2 justify-content-center mb-md-0"
@@ -57,16 +60,6 @@ export default function Navbar() {
 
           {/* Right Side Actions */}
           <div className="d-flex align-items-center gap-3 me-3">
-            {/* Help Icon */}
-            <Link
-              to="/chatbot"
-              className="btn btn-light d-flex align-items-center"
-              data-bs-toggle="tooltip"
-              data-bs-placement="bottom"
-              title="Need Help?"
-            >
-              <MdHelpOutline color="black" size={30} />
-            </Link>
             {/* Login Button */}
             <Link to="/Login">
               <button type="button" className={`${style.LoginBtn}`}>
