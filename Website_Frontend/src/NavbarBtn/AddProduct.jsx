@@ -47,7 +47,14 @@ const AddProduct = () => {
                 <label className="form-label fw-semibold">Product Name</label>
                 <input
                   type="text"
-                  {...register("itemName", { required: true })}
+                  {...register("itemName", {
+                    required: "Product name is required.",
+                    pattern: {
+                      value: /^[A-Za-z\s]+$/,
+                      message:
+                        "Product name must contain only letters and spaces.",
+                    },
+                  })}
                   className={`form-control ${
                     errors.itemName ? "is-invalid" : ""
                   }`}
@@ -55,7 +62,7 @@ const AddProduct = () => {
                 />
                 {errors.itemName && (
                   <div className="invalid-feedback">
-                    Product name is required.
+                    {errors.itemName.message}
                   </div>
                 )}
               </div>
@@ -63,7 +70,14 @@ const AddProduct = () => {
               <div className="mb-3">
                 <label className="form-label fw-semibold">Description</label>
                 <textarea
-                  {...register("description", { required: true })}
+                  {...register("description", {
+                    required: "Description is required.",
+                    pattern: {
+                      value: /^[A-Za-z\s]+$/,
+                      message:
+                        "Description must contain only letters and spaces.",
+                    },
+                  })}
                   className={`form-control ${
                     errors.description ? "is-invalid" : ""
                   }`}
@@ -72,7 +86,7 @@ const AddProduct = () => {
                 ></textarea>
                 {errors.description && (
                   <div className="invalid-feedback">
-                    Description is required.
+                    {errors.description.message}
                   </div>
                 )}
               </div>
