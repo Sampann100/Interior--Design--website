@@ -26,6 +26,12 @@ const Contact = () => {
   const handleBothActions = async (e) => {
     e.preventDefault();
 
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+      return;
+    }
+
     await handleSubmit(e);
     await handleGenerateImage();
   };
@@ -40,9 +46,21 @@ const Contact = () => {
 
   const validate = () => {
     const errors = {};
-    if (!formData.FirstName) errors.FirstName = "Username is required.";
+    const nameRegex = /^[A-Za-z]+$/;
+
+    if (!formData.FirstName.trim()) {
+      errors.FirstName = "FirstName is required.";
+    } else if (!nameRegex.test(formData.FirstName)) {
+      errors.FirstName = "first name can only contain letters and spaces.";
+    }
+
+    if (!formData.LastName.trim()) {
+      errors.LastName = "LastName is required.";
+    } else if (!nameRegex.test(formData.LastName)) {
+      errors.LastName = "last name can only contain letters and spaces.";
+    }
+
     if (!formData.Email) errors.Email = "Email is required.";
-    if (!formData.LastName) errors.LastName = "LastName is required.";
     if (!formData.Address1) errors.Address1 = "Address1 is required.";
     if (!formData.Address2) errors.Address1 = "Address2 is required.";
     if (!formData.Country) errors.Country = "Country is required.";
@@ -56,12 +74,6 @@ const Contact = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-      return;
-    }
-
     const {
       FirstName,
       LastName,
@@ -74,53 +86,37 @@ const Contact = () => {
       Message,
     } = formData;
 
-    if (
-      FirstName &&
-      LastName &&
-      Email &&
-      Address1 &&
-      Address2 &&
-      Country &&
-      State &&
-      Zip &&
-      Message
-    ) {
-      try {
-        const response = await fetch(
-          "http://localhost:5000/personalcontactdetail",
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              FirstName,
-              LastName,
-              Email,
-              Address1,
-              Address2,
-              Country,
-              State,
-              Zip,
-              Message,
-            }),
-          }
-        );
-
-        if (response.ok) {
-          const result = await response.json();
-          setMessage(result.message || "Your Deatil are successfully Saved!");
-        } else {
-          const error = await response.json();
-          setMessage(
-            error.message || "Something went wrong. Please try again."
-          );
+    try {
+      const response = await fetch(
+        "http://localhost:5000/personalcontactdetail",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            FirstName,
+            LastName,
+            Email,
+            Address1,
+            Address2,
+            Country,
+            State,
+            Zip,
+            Message,
+          }),
         }
-      } catch (error) {
-        setMessage("Failed to connect to the server. Please try later.");
+      );
+
+      if (response.ok) {
+        const result = await response.json();
+        setMessage(result.message || "Your Detail is successfully saved!");
+      } else {
+        const error = await response.json();
+        setMessage(error.message || "Something went wrong. Please try again.");
       }
-    } else {
-      setMessage("Please fill in all fields.");
+    } catch (error) {
+      setMessage("Failed to connect to the server. Please try later.");
     }
 
     setFormData({

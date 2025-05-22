@@ -368,3 +368,14 @@ a.action_container:link {
 .spinner {
   margin: 100px 0px;
 }
+
+.Checkout_Title__qHdVC {
+  font-family: Simula, serif;
+  font-weight: 550;
+  font-feature-settings: "lnum";
+  font-variant: lining-nums;
+  --webkit-font-smoothing: antialiased;
+  font-size: 55px;
+  line-height: 80px;
+  margin: 15px auto 15px 21px;
+}

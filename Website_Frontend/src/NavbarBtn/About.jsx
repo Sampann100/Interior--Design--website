@@ -43,21 +43,23 @@ const About = () => {
               and indulge in the epitome of luxury and comfort.
             </p>
             <div className="d-flex gap-3 mt-4">
-              <button
-                className="btn fw-semibold"
-                style={{
-                  background: "#cd8f52",
-                  color: "#fff",
-                  borderRadius: "2rem",
-                  padding: "10px 32px",
-                  fontSize: "1.1rem",
-                  letterSpacing: "1px",
-                  boxShadow: "0 2px 8px rgba(205,143,82,0.08)",
-                  border: "none",
-                }}
-              >
-                Our Portfolio
-              </button>
+              <Link to="/service">
+                <button
+                  className="btn fw-semibold"
+                  style={{
+                    background: "#cd8f52",
+                    color: "#fff",
+                    borderRadius: "2rem",
+                    padding: "10px 32px",
+                    fontSize: "1.1rem",
+                    letterSpacing: "1px",
+                    boxShadow: "0 2px 8px rgba(205,143,82,0.08)",
+                    border: "none",
+                  }}
+                >
+                  Our Portfolio
+                </button>
+              </Link>
               <Link to="/Contact">
                 <button
                   className="btn btn-outline-dark fw-semibold"

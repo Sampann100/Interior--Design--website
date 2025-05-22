@@ -19,12 +19,13 @@ import ProductDetail from "./NavbarBtn/ProductDetail.jsx";
 //authentication
 import LoginPage from "./authentication/LoginPage.jsx";
 import SignUpForm from "./authentication/SignUp.jsx";
+import Payment from "./Heading-Part/Payment.jsx";
 
 const router = createBrowserRouter(
   [
     {
       path: "/",
-      element: <App/>,
+      element: <App />,
       children: [
         { index: true, element: <Home /> },
         { path: "/Home", element: <Home /> },
@@ -38,15 +39,19 @@ const router = createBrowserRouter(
     },
     {
       path: "/Login",
-      element: <LoginPage/>,
+      element: <LoginPage />,
     },
     {
       path: "/SignUp",
-      element: <SignUpForm/>,
+      element: <SignUpForm />,
     },
     {
       path: "/chatbot",
       element: <Chatbot />,
+    },
+    {
+      path: "/payment",
+      element: <Payment />,
     },
   ],
   {
@@ -69,14 +74,3 @@ createRoot(document.getElementById("root")).render(
   </StrictMode>
 );
 
-// I need an interior design concept for a [residential/commercial] space with a [modern/minimalist/classic/bohemian/industrial/etc.] style. The space includes [living room, bedroom, office, kitchen, etc.], and I want it to feel [cozy, luxurious, spacious, warm, elegant, etc.]. The color palette should feature [neutral tones, bold colors, earthy hues, pastel shades, etc.]
-
-// A sleek, modern living room with a neutral palette, marble coffee table, plush sofa, ambient lighting, and floor-to-ceiling windows.
-
-// I need an interior design concept for a modern minimalist living room that feels warm, inviting, and functional. The space is 20x15 feet with a large window providing natural light. The design should focus on neutral tones (white, beige, and gray) with wood accents for warmth.
-
-// name: 'Modern Wooden Table',
-//   description: 'A beautifully crafted wooden table with a minimalist design.',
-//   current_price: '3500',
-//   original_price: '5000',
-//   imageUrl: 'http://thewowstyle.com/wp-content/uploads/2015/01/Home-Interior-Design-Hd-Wallpaper-Hd-Background-With-Simple-Staircase-And-Plasma-TV-Also-Nice-Laminate-Flooring-Ideas-With-Modern-Furniture-Interior-Minimalist-Design.jpg'

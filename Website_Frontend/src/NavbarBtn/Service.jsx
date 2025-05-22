@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../Heading-Part/Navbar";
 import Footer from "../Heading-Part/Footer";
+import { Link } from "react-router-dom";
 
 const cardData = [
   {
@@ -81,26 +82,31 @@ const Service = () => {
                   >
                     {card.title}
                   </h5>
-                  <p className="card-text text-center" style={{ fontSize: "1rem", color: "#444" }}>
+                  <p
+                    className="card-text text-center"
+                    style={{ fontSize: "1rem", color: "#444" }}
+                  >
                     {card.desc}
                   </p>
-                  <button
-                    className="btn fw-semibold mt-auto"
-                    style={{
-                      background: "#cd8f52",
-                      color: "#fff",
-                      borderRadius: "2rem",
-                      padding: "10px 28px",
-                      fontSize: "1.08rem",
-                      letterSpacing: "1px",
-                      boxShadow: "0 2px 8px rgba(205,143,82,0.08)",
-                      border: "none",
-                      marginTop: "1.5rem",
-                      transition: "background 0.2s",
-                    }}
-                  >
-                    View Recent Designs
-                  </button>
+                  <Link to="/">
+                    <button
+                      className="btn fw-semibold mt-auto"
+                      style={{
+                        background: "#cd8f52",
+                        color: "#fff",
+                        borderRadius: "2rem",
+                        padding: "10px 28px",
+                        fontSize: "1.08rem",
+                        letterSpacing: "1px",
+                        boxShadow: "0 2px 8px rgba(205,143,82,0.08)",
+                        border: "none",
+                        marginTop: "1.5rem",
+                        transition: "background 0.2s",
+                      }}
+                    >
+                      View Recent Designs
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

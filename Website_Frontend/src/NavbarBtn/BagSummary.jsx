@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const BagSummary = () => {
   let bagItem = useSelector((state) => state.bagItem);
@@ -18,7 +19,9 @@ const BagSummary = () => {
   return (
     <div className="bag-summary mb-4">
       <div className="bag-details-container">
-        <div className="price-header">PRICE DETAILS ({bagItem.length} Items) </div>
+        <div className="price-header">
+          PRICE DETAILS ({bagItem.length} Items){" "}
+        </div>
         <div className="price-item">
           <span className="price-item-tag">Total MRP</span>
           <span className="price-item-value">₹{totalMRP}</span>
@@ -39,9 +42,11 @@ const BagSummary = () => {
           <span className="price-item-value">₹{finalPayment}</span>
         </div>
       </div>
-      <button className="btn-place-order">
-        <div className="css-xjhrni">Book Counseller</div>
-      </button>
+      <Link to="/payment">
+        <button className="btn-place-order">
+          <div className="css-xjhrni">Book Counseller</div>
+        </button>
+      </Link>
     </div>
   );
 };

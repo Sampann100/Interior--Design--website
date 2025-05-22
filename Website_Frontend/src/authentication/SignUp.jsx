@@ -24,12 +24,26 @@ const SignUpForm = () => {
 
   const validate = () => {
     const errors = {};
-    if (!formData.Username) errors.Username = "Username is required.";
-    if (!formData.Email) errors.Email = "Email is required.";
-    if (!formData.Password) errors.Password = "Password is required.";
+    const nameRegex = /^[A-Za-z\s]+$/;
+
+    if (!formData.Username.trim()) {
+      errors.Username = "Username is required.";
+    } else if (!nameRegex.test(formData.Username)) {
+      errors.Username = "Username can only contain letters and spaces.";
+    }
+
+    if (!formData.Email) {
+      errors.Email = "Email is required.";
+    }
+
+    if (!formData.Password) {
+      errors.Password = "Password is required.";
+    }
+
     if (formData.Password !== formData.confirmPassword) {
       errors.confirmPassword = "Passwords do not match.";
     }
+
     return errors;
   };
 
@@ -52,7 +66,7 @@ const SignUpForm = () => {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ Username, Email, Password })
+          body: JSON.stringify({ Username, Email, Password }),
         });
 
         if (response.ok) {
@@ -87,7 +101,8 @@ const SignUpForm = () => {
     <div
       className="min-vh-100 d-flex flex-column justify-content-center align-items-center"
       style={{
-        backgroundImage: 'url("https://havenly.com/img/backgrounds/marble.jpg")',
+        backgroundImage:
+          'url("https://havenly.com/img/backgrounds/marble.jpg")',
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -141,12 +156,14 @@ const SignUpForm = () => {
                 id="name"
                 name="Username"
                 value={formData.Username}
+                // onBlur={validateUsername}
                 onChange={handleChange}
                 className={`form-control ${
                   errors.Username ? "is-invalid" : ""
                 }`}
                 placeholder="Enter your username"
                 autoComplete="off"
+                required
               />
               {errors.Username && (
                 <div className="invalid-feedback">{errors.Username}</div>
