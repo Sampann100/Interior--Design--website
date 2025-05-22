@@ -50,7 +50,7 @@ const AddProduct = () => {
                   {...register("itemName", {
                     required: "Product name is required.",
                     pattern: {
-                      value: /^[A-Za-z\s]+$/,
+                      value: /^[A-Za-z\s&]+$/,
                       message:
                         "Product name must contain only letters and spaces.",
                     },
