@@ -3,7 +3,6 @@ const ItemCollection = require("../models/items");
 exports.getaddItems = async (req, res, next) => {
   try {
     const data = await ItemCollection.find({}, { items: 0 });
-    console.log(data);
     res.status(200).json(data);
   } catch (error) {
     console.error("Error fetching items:", error);
