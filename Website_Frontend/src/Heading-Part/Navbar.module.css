@@ -1,0 +1,42 @@
+.headingImage {
+  max-height: 66px;
+}
+
+.navStyle {
+  text-decoration: none;
+  color: black;
+  display: block;
+  padding: var(--bs-nav-link-padding-y) var(--bs-nav-link-padding-x);
+  font-size: var(--bs-nav-link-font-size);
+  font-weight: var(--bs-nav-link-font-weight);
+  text-decoration: none;
+  background: 0 0;
+  border: 0;
+  transition: var(--bs-nav-link-color) 0.15sease-in-out,
+    background-color 0.15sease-in-out, border-color 0.15sease-in-out;
+}
+:hover.navStyle {
+  color: var(--bs-nav-link-color);
+}
+
+.detailEnter {
+  position: absolute;
+  left: 1650px;
+}
+
+.LoginBtn {
+  color: #cd8f52;
+  font-weight: 600;
+  border: 2px solid #cd8f52;
+  height: 45px;
+  border-radius: 250px;
+  text-decoration: none;
+  width: 150px;
+}
+
+:hover.LoginBtn {
+  background-color: #cd8f52;
+  color: white;
+  transition: all 0.3s ease-in-out;
+
+}

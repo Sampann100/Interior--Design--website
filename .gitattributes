@@ -1,0 +1,5 @@
+<<<<<<< HEAD
+*.your-file-extension filter=lfs diff=lfs merge=lfs -text
+=======
+*.your-file-extension filter=lfs diff=lfs merge=lfs -text
+>>>>>>> 187e5ac (termperory work)
