@@ -1,4 +1,3 @@
-import { deleteMessages } from "react-chat-widget";
 import { Link } from "react-router-dom";
 
 const ChatBot = () => {
