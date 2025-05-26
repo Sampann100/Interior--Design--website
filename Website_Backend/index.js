@@ -17,7 +17,7 @@ const app = express();
 //Cors middleware
 app.use(
   cors({
-    origin: "http://localhost:5173",
+    origin: "https://interior-design-website-frontend.onrender.com",
   })
 );
 
