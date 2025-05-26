@@ -7,7 +7,7 @@
 //     e.preventDefault();
 //     const comment = e.target.comment.value;
 
-//     const response = fetch("http://localhost:5000/comment", {
+//     const response = fetch("https://interior-design-website-backend.onrender.com/comment", {
 //       method: "POST",
 //       headers: {
 //         "Content-Type": "application/json",
