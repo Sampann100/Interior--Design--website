@@ -88,7 +88,7 @@ const Contact = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/personalcontactdetail",
+        "https://interior-design-website-backend.onrender.com/personalcontactdetail",
         {
           method: "POST",
           headers: {
@@ -136,7 +136,7 @@ const Contact = () => {
   const handleGenerateImage = async () => {
     setLoading(true);
     try {
-      const response = await fetch("http://localhost:5000/generate-image", {
+      const response = await fetch("https://interior-design-website-backend.onrender.com/generate-image", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: formData.Message }),
