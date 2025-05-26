@@ -16,7 +16,7 @@ const Chatbot = () => {
     setInput("");
 
     try {
-      const response = await axios.post("http://localhost:5000/chatbot", {
+      const response = await axios.post("https://interior-design-website-backend.onrender.com/chatbot", {
         message: input,
       });
 
