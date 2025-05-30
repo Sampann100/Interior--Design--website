@@ -22,7 +22,7 @@ export default function TitlePart() {
 
   //auto renderig page
   useEffect(() => {
-    fetch("http://localhost:5000/cart", {
+    fetch("https://interior-design-website-backend.onrender.com/cart", {
       methpd: "GET",
     })
       .then((res) => res.json())
@@ -37,7 +37,7 @@ export default function TitlePart() {
   //Add To Cart
   const addToCart = async (e, itemId) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/cart", {
+    const response = await fetch("https://interior-design-website-backend.onrender.com/cart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,7 +45,7 @@ export default function TitlePart() {
       body: JSON.stringify({ itemId }),
     });
     if (response.ok) {
-      await fetch("http://localhost:5000/cart", {
+      await fetch("https://interior-design-website-backend.onrender.com/cart", {
         method: "GET",
       })
         .then((res) => res.json())
@@ -58,7 +58,7 @@ export default function TitlePart() {
   //Remove From Cart
   const handleRemoveItemFromCart = async (e, itemId) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:5000/deleteCartItem", {
+    const res = await fetch("https://interior-design-website-backend.onrender.com/deleteCartItem", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -78,7 +78,7 @@ export default function TitlePart() {
   const handleDeleteSubmit = async (e, itemId) => {
     e.preventDefault();
     console.log("Deleting item with ID:", itemId);
-    const response = await fetch("http://localhost:5000/itemDelete", {
+    const response = await fetch("https://interior-design-website-backend.onrender.com/itemDelete", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -86,7 +86,7 @@ export default function TitlePart() {
       body: JSON.stringify({ itemId }),
     });
     if (response.ok) {
-      await fetch("http://localhost:5000/items")
+      await fetch("https://interior-design-website-backend.onrender.com/items")
         .then((res) => res.json())
         .then((data) => {
           dispatch(itemActions.addInitialState(data));
