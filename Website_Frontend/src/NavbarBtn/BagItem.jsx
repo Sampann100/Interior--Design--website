@@ -10,7 +10,7 @@ const BagItem = ({ newitem }) => {
 
   const handleRemoveItemFromCart = async (e, itemId) => {
     e.preventDefault();
-    const res = await fetch("https://interior-design-website-backend.onrender.com/deleteCartItem", {
+    const res = await fetch("http://localhost:5000/deleteCartItem", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -11,7 +11,7 @@ const FetchItem = () => {
     const controller = new AbortController();
     dispatch(fetctStatusAction.markFetchStarted());
 
-    fetch("https://interior-design-website-backend.onrender.com/items")
+    fetch("http://localhost:5000/items")
       .then((res) => res.json())
       .then((items) => {
         dispatch(itemActions.addInitialState(items));

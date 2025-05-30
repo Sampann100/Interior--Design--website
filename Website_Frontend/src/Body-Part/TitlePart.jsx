@@ -12,13 +12,17 @@ import ChatBot from "./ChatBot";
 export default function TitlePart() {
   const items = useSelector((state) => state.items || []);
   const bagItems = useSelector((state) => state.bagItem || []);
-  const bagItemId = bagItems.map((item) => item.itemId._id || item.itemId);
+  const bagItemId = bagItems.map((item) =>
+    item.itemId && typeof item.itemId === "object"
+      ? item.itemId._id
+      : item.itemId
+  );
   const fetchStatus = useSelector((state) => state.fetchStatus);
   const dispatch = useDispatch();
 
   //auto renderig page
   useEffect(() => {
-    fetch("https://interior-design-website-backend.onrender.com/cart", {
+    fetch("http://localhost:5000/cart", {
       methpd: "GET",
     })
       .then((res) => res.json())
@@ -33,7 +37,7 @@ export default function TitlePart() {
   //Add To Cart
   const addToCart = async (e, itemId) => {
     e.preventDefault();
-    const response = await fetch("https://interior-design-website-backend.onrender.com/cart", {
+    const response = await fetch("http://localhost:5000/cart", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -41,7 +45,7 @@ export default function TitlePart() {
       body: JSON.stringify({ itemId }),
     });
     if (response.ok) {
-      await fetch("https://interior-design-website-backend.onrender.com/cart", {
+      await fetch("http://localhost:5000/cart", {
         method: "GET",
       })
         .then((res) => res.json())
@@ -54,7 +58,7 @@ export default function TitlePart() {
   //Remove From Cart
   const handleRemoveItemFromCart = async (e, itemId) => {
     e.preventDefault();
-    const res = await fetch("https://interior-design-website-backend.onrender.com/deleteCartItem", {
+    const res = await fetch("http://localhost:5000/deleteCartItem", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -74,7 +78,7 @@ export default function TitlePart() {
   const handleDeleteSubmit = async (e, itemId) => {
     e.preventDefault();
     console.log("Deleting item with ID:", itemId);
-    const response = await fetch("https://interior-design-website-backend.onrender.com/itemDelete", {
+    const response = await fetch("http://localhost:5000/itemDelete", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -82,10 +86,13 @@ export default function TitlePart() {
       body: JSON.stringify({ itemId }),
     });
     if (response.ok) {
-      await fetch("https://interior-design-website-backend.onrender.com/items")
+      await fetch("http://localhost:5000/items")
         .then((res) => res.json())
         .then((data) => {
           dispatch(itemActions.addInitialState(data));
+          dispatch(bagActions.removeFromBag(itemId));
+          dispatch(fetctStatusAction.markFetchDone());
+          dispatch(fetctStatusAction.markFetchFinish());
         });
     }
   };
@@ -99,17 +106,25 @@ export default function TitlePart() {
     <main>
       <ChatBot />
       <section className="container">
-        <h1 className="preFade fadeIn my-5" style={{ marginLeft: "400px" }}>
-          <Typewriter
-            text="Orange County Interior Design"
-            cursorColor="#000"
-            typeSpeed={80}
-            eraseSpeed={20}
-            delay={2000}
-            loop={Infinity}
-            className={style.sqsrte}
-          />
+        <h1 className="my-5 preFade fadeIn">
+          <div className="d-flex justify-content-center">
+            <Typewriter
+              multiText={[
+                "Orange County Interior Design",
+                "Luxury Interior Styling",
+                "Elegant Spaces by Marc Pridmore",
+                "Sophisticated Living Solutions",
+              ]}
+              multiTextLoop
+              multiTextDelay={1500}
+              typeSpeed={90}
+              eraseSpeed={20}
+              cursorColor="#000"
+              className={style.sqsrte}
+            />
+          </div>
         </h1>
+
         <p className={`text-center ${style.para}`}>
           Discover the epitome of luxury and sophistication at Marc Pridmore
           Designs, Southern California's premier interior design firm and

@@ -11,7 +11,7 @@ const Bag = () => {
   const bagItems = useSelector((state) => state.bagItem);
 
   useEffect(() => {
-    fetch("https://interior-design-website-backend.onrender.com/cart")
+    fetch("http://localhost:5000/cart")
       .then((res) => res.json())
       .then((data) => {
         dispatch(bagActions.addToBag(data));

@@ -61,7 +61,7 @@ const SignUpForm = () => {
 
     if (Username && Email && Password) {
       try {
-        const response = await fetch("https://interior-design-website-backend.onrender.com/signup", {
+        const response = await fetch("http://localhost:5000/signup", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

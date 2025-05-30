@@ -88,7 +88,7 @@ const Contact = () => {
 
     try {
       const response = await fetch(
-        "https://interior-design-website-backend.onrender.com/personalcontactdetail",
+        "http://localhost:5000/personalcontactdetail",
         {
           method: "POST",
           headers: {
@@ -136,7 +136,7 @@ const Contact = () => {
   const handleGenerateImage = async () => {
     setLoading(true);
     try {
-      const response = await fetch("https://interior-design-website-backend.onrender.com/generate-image", {
+      const response = await fetch("http://localhost:5000/generate-image", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt: formData.Message }),
@@ -350,19 +350,12 @@ const Contact = () => {
             ></textarea>
           </div>
 
-          <div>
+          <div className="d-flex justify-content-center mt-4">
             <button
-              type="Submit"
-              className="_MeetMarc_kztix_221"
-              fdprocessedid="4xb35"
+              type="submit"
+              className="btn btn-dark px-4 py-3"
               disabled={loading}
-              style={{
-                backgroundColor: "black",
-                color: "white",
-                height: "60px",
-                width: "200px",
-                marginLeft: "550px",
-              }}
+              style={{ borderRadius: "25px" }}
             >
               {loading
                 ? "Saving... & Generating Image..."

@@ -1,43 +1,50 @@
-const { json } = require("body-parser");
 const ItemCollection = require("../models/items");
-const bagItem = require("../models/bagItem");
+const BagItem = require("../models/bagItem");
 
-exports.postBagItem = async (req, res, next) => {
-  const { itemId } = req.body;
-  const itemExist = ItemCollection.findById(itemId);
-  if (!itemExist) {
-    return res.status(404).json({ message: "Item does not exist." });
+exports.postBagItem = async (req, res) => {
+  try {
+    const { itemId } = req.body;
+    const itemExist = await ItemCollection.findById(itemId);
+    if (!itemExist) {
+      return res.status(404).json({ message: "Item does not exist." });
+    }
+
+    const alreadyInBag = await BagItem.findOne({ itemId });
+    if (alreadyInBag) {
+      return res.status(400).json({ message: "Item already in bag" });
+    }
+
+    const newBagItem = new BagItem({ itemId });
+    await newBagItem.save();
+    res.status(200).json({ message: "Item added to bag successfully" });
+  } catch (error) {
+    console.error("Error adding to bag:", error);
+    res.status(500).json({ message: "Failed to add item to bag" });
   }
-  const productId = await new bagItem({ itemId: itemId });
-  if (!productId) {
-    return res.status(404).json({ messgae: "Item not found" });
-  }
-  productId
-    .save()
-    .then(() =>
-      res.status(200).json({ message: "Item added to bag successfully" })
-    )
-    .catch((err) => res.status(404).json({ message: "Item not added to bag" }));
 };
 
-exports.getBagItem = async (req, res, next) => {
-  const bagItems = await bagItem.find().populate("itemId");
-  if (!bagItems) {
-    return res.status(404).json({ message: "Bag is empty" });
+exports.getBagItem = async (req, res) => {
+  try {
+    const bagItems = await BagItem.find().populate("itemId");
+    res.status(200).json(bagItems);
+  } catch (error) {
+    console.error("Error fetching bag items:", error);
+    res.status(500).json({ message: "Failed to fetch bag items" });
   }
-  res.status(200).json(bagItems);
 };
 
-exports.deleteBagItem = async (req, res, next) => {
-  const { itemId } = req.body;
+exports.deleteBagItem = async (req, res) => {
+  try {
+    const { itemId } = req.body;
+    const itemDeleted = await BagItem.findOneAndDelete({ itemId });
 
-  await bagItem
-    .findOneAndDelete({ itemId: itemId })
-    .then((itemdelete) => {
-      if (!itemdelete) {
-        return res.status(404).json({ message: "Item not found" });
-      }
-      res.json({ message: "Item deleted successfully" });
-    })
-    .catch((err) => res.status(404).json({ message: "Item not deleted" }));
+    if (!itemDeleted) {
+      return res.status(404).json({ message: "Item not found in bag" });
+    }
+
+    res.status(200).json({ message: "Item removed from bag successfully" });
+  } catch (error) {
+    console.error("Error deleting bag item:", error);
+    res.status(500).json({ message: "Failed to delete item from bag" });
+  }
 };

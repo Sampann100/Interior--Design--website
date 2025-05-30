@@ -15,11 +15,24 @@ const authRouter = require("./routes/auth");
 const app = express();
 
 //Cors middleware
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://interior-design-website-frontend.onrender.com"
+];
+
 app.use(
   cors({
-    origin: "https://interior-design-website-frontend.onrender.com",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true,
   })
 );
+
 
 //Body parser middleware
 app.use(bodyParser.json());

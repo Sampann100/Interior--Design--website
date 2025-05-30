@@ -7,7 +7,7 @@
 //     e.preventDefault();
 //     const comment = e.target.comment.value;
 
-//     const response = fetch("https://interior-design-website-backend.onrender.com/comment", {
+//     const response = fetch("http://localhost:5000/comment", {
 //       method: "POST",
 //       headers: {
 //         "Content-Type": "application/json",
@@ -84,7 +84,7 @@ const CommentBox = () => {
     setSuccess(null);
 
     try {
-      const response = await fetch("https://interior-design-website-backend.onrender.com/comment", {
+      const response = await fetch("http://localhost:5000/comment", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
