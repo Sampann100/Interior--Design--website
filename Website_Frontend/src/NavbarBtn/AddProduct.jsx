@@ -16,7 +16,7 @@ const AddProduct = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    const response = await fetch("http://localhost:5000/items", {
+    const response = await fetch("https://interior-design-website-backend.onrender.com/items", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -24,7 +24,7 @@ const AddProduct = () => {
       body: JSON.stringify(data),
     });
 
-    const res = await fetch("http://localhost:5000/items");
+    const res = await fetch("https://interior-design-website-backend.onrender.com/items");
     const items = await res.json();
 
     dispatch(itemActions.addInitialState(items));
