@@ -19,19 +19,6 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <button
-            class="navbar-toggler collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarCollapse"
-            aria-controls="navbarCollapse"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            {" "}
-            <span class="navbar-toggler-icon"></span>{" "}
-          </button>
-
           {/* Navigation Links */}
           <div
             className="navbar navbar-expand-lg bg-body-tertiary"
