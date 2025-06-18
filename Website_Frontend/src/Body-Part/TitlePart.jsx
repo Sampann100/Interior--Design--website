@@ -152,7 +152,7 @@ export default function TitlePart() {
                         className="bg-transparent border-0 p-0"
                         title="Delete Product"
                       >
-                        <MdDeleteForever size={26} color="red" />
+{/*                         <MdDeleteForever size={26} color="red" /> */}
                       </button>
                     </form>
                     <Link to={`/product/${item._id}`}>
